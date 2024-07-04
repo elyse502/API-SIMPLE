@@ -5,7 +5,7 @@ const app = express();
 const port = 3000;
 
 app.get('/hello-world', (req, res) => {
-    res.status(StatusCodes.NOT_FOUND);
+    res.status(StatusCodes.OK);
     res.send('Hello World!');
 });
 
