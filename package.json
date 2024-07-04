@@ -10,7 +10,6 @@
   "license": "MIT",
   "main": "node_modules/.bin/nodemon --exec babel-node src/server.js",
   "dependencies": {
-    "body-parser": "^1.20.2",
     "express": "^4.19.2",
     "http-status-codes": "^2.3.0"
   },
