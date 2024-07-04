@@ -1,10 +1,11 @@
 import express from 'express';
+import { StatusCodes } from 'http-status-codes';
 
 const app = express();
 const port = 3000;
 
-app.post('/add', (req, res) => {
-    res.status(201); // CREATED
+app.get('/hello-world', (req, res) => {
+    res.status(StatusCodes.NOT_FOUND);
     res.send('Hello World!');
 });
 
