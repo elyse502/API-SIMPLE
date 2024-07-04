@@ -2,8 +2,9 @@
   "name": "api-simple",
   "version": "1.0.0",
   "description": "Simple API to know more how to build a backend with NodeJS",
-  "main": "server.js",
+  "main": "node_modules/.bin/nodemon --exec babel-node src/server.js",
   "scripts": {
+    "start": "node_modules/.bin/nodemon --exec babel-node src/server.js",
     "test": "ava"
   },
   "keywords": [
