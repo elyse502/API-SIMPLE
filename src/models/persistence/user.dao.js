@@ -15,12 +15,29 @@ const getAll = () => {
     return users;
 };
 
-const update = (newDetails) => {
+const update = (userId, newDetails) => {
+    let existingUser = null;
+    let userIndex;
+
     users.map((user, index) => {
-        if (user.id === newDetails.id) {
-            
+        if (user.id === userId) {
+            existingUser = user;
+            userIndex = index;
         }
-    })
+    });
+
+    if (!existingUser) {
+        return false;
+    }
+
+    const updatedUser = {
+        ...existingUser,
+        ...newDetails
+    };
+
+    users.splice(userIndex, 1, updatedUser);
+
+    return updatedUser;
 }
 
 const insert = (details) => {

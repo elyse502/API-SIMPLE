@@ -5,7 +5,7 @@ const getUser = (userId) => {
 };
 
 const updateUser = (userId, details) => {
-    return userDao.update(userId);
+    return userDao.update(userId, details);
 };
 
 const addUser = (details) => {
