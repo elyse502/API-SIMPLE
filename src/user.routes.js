@@ -53,7 +53,7 @@ router.post('/', (req, res) => {
 
     return res.status(StatusCodes.CREATED).send({
         status: STATUS.success,
-        message: addedUser
+        user: addedUser
     });
 });
 
@@ -75,6 +75,28 @@ router.put('/:id', (req, res) => {
             message: `User "${id}" is not found`
         });
     }
+});
+
+router.delete('/:id', (req, res) => {
+    const { params } = req;
+
+    const id = parseInt(params.id);
+    const user = userService.getUser(id);
+    
+    if (user) {
+        userService.removeUser(id);
+        return res.status(StatusCodes.OK).send({
+            status: STATUS.success,
+            message: `User ${id} has been deleted.`
+        });
+    } else {
+        return res.status(StatusCodes.NOT_FOUND).send({
+                status: STATUS.failure,
+                message: `User ${id} hasn't been found.`
+            });
+    }
+
+
 });
 
 
