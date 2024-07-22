@@ -25,7 +25,7 @@ router.get('/all', (req, res) => {
     );
 });
 
-router.get('/get/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
     const user = userService.getUser(id);
 
@@ -33,7 +33,7 @@ router.get('/get/:id', (req, res) => {
         return res.status(StatusCodes.OK).send(
             {
                 status: STATUS.success,
-                data: user
+                user
             }
         );
     }
@@ -41,12 +41,12 @@ router.get('/get/:id', (req, res) => {
     return res.status(StatusCodes.NOT_FOUND).send(
         {
             status: STATUS.failure,
-            message: 'No users found.'
+            message: `User ${id} is not found.`
         }
     );
 });
 
-router.post('/add', (req, res) => {
+router.post('/', (req, res) => {
     const { body: user } = req;
 
     const addedUser = userService.addUser(user);
@@ -57,7 +57,7 @@ router.post('/add', (req, res) => {
     });
 });
 
-router.put('/update/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const { body: user } = req;
 
     const id = parseInt(req.params.id, 10);
@@ -67,7 +67,7 @@ router.put('/update/:id', (req, res) => {
     if (updatedUser) {
         return res.status(StatusCodes.OK).send({
             status: STATUS.success,
-            message: updatedUser
+            user: updatedUser
         });
     } else {
         return res.status(StatusCodes.NOT_FOUND).send({

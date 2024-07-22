@@ -2,7 +2,7 @@ import users from '../data/users.data';
 
 const get = (userId) => {
     const findUser = users.find((user) => {
-        if (users.id === userId) {
+        if (user.id === userId) {
             return user;
         }
         return null;
@@ -41,7 +41,7 @@ const update = (userId, newDetails) => {
 }
 
 const insert = (details) => {
-    const newUser = { ...details, id: users.length+1 };
+    const newUser = { ...details, id: users.length + 1 };
     users.push(newUser);
 
     return newUser;
