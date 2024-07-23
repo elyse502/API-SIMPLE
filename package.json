@@ -12,7 +12,8 @@
   "dependencies": {
     "express": "^4.19.2",
     "express-yup-middleware": "^1.2.4",
-    "http-status-codes": "^2.3.0"
+    "http-status-codes": "^2.3.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
