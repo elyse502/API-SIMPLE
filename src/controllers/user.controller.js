@@ -42,8 +42,8 @@ const getUser = (req, res) => {
     const user = userService.getUser(id);
 
     if (user) {
-        logger.info(`Retrieving ${id} user`);
-        
+        logger.info(`Retrieving user ID ${id}`);
+
         return res.status(StatusCodes.OK).send(user);
     }
 
@@ -90,7 +90,7 @@ const updateUser = (req, res) => {
     const updatedUser = userService.updateUser(id, user);
 
     if (updatedUser) {
-        logger.info(`Updating ${id} user`);
+        logger.info(`Updating user ID ${id}`);
 
         return res.status(StatusCodes.OK).send({
             status: STATUS.success,
@@ -119,7 +119,7 @@ const removeUser = (req, res) => {
     
     if (user) {
         userService.removeUser(id);
-        logger.info(`Removing ${id} user`);
+        logger.info(`Removing user ID ${id}`);
 
         return res.status(StatusCodes.OK).send({
             status: STATUS.success,
