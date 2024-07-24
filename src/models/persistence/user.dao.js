@@ -4,6 +4,13 @@ const get = (userId) => users.find((user) => user.id === userId);
 
 const getAll = () => users;
 
+/**
+ * Update a user from its ID.
+ * 
+ * @param {integer} userId
+ * @param {Object} newDetails
+ * @returns {boolean|*}
+ */
 const update = (userId, newDetails) => {
     let existingUser = null;
     let userIndex;
@@ -29,6 +36,12 @@ const update = (userId, newDetails) => {
     return updatedUser;
 }
 
+/**
+ * Insert a user.
+ * 
+ * @param {Object} details 
+ * @returns {*&{id: number}}
+ */
 const insert = (details) => {
     const newUser = {
         id: users.length + 1,
@@ -40,6 +53,12 @@ const insert = (details) => {
     return newUser;
 }
 
+/**
+ * Remove a user from its ID.
+ * 
+ * @param {integer} userId 
+ * @returns {*}
+ */
 const remove = (userId) => {
     const deleteUser = (user, index) => {
         if (user?.id === userId) {

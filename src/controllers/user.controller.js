@@ -7,6 +7,12 @@ const STATUS = {
     failure: 'NO'
 };
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 const getAllUsers = (req, res) => {
     const users = userService.getAllUsers();
 
@@ -22,6 +28,12 @@ const getAllUsers = (req, res) => {
     );
 };
 
+/**
+ * Retrieve a user.
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 const getUser = (req, res) => {
     const id = parseInt(req.params.id, 10);
     const user = userService.getUser(id);
@@ -43,6 +55,13 @@ const getUser = (req, res) => {
     );
 };
 
+/**
+ * Add a user.
+ * 
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 const addUser = (req, res) => {
     const { body: user } = req;
 
@@ -54,6 +73,13 @@ const addUser = (req, res) => {
     });
 };
 
+/**
+ * Update a user.
+ * 
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 const updateUser = (req, res) => {
     const { body: user } = req;
 
@@ -74,6 +100,13 @@ const updateUser = (req, res) => {
     }
 };
 
+/**
+ * Remove a user.
+ * 
+ * @param req 
+ * @param res 
+ * @returns {*}
+ */
 const removeUser = (req, res) => {
     const { params } = req;
 
