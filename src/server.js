@@ -8,7 +8,7 @@ import rateLimit from 'express-rate-limit';
 import compression from 'compression';
 
 const app = express();
-const port = 3000;
+const port = 4000;
 
 const limiter = rateLimit({
 	windowMs: 60 * 1000, // 1 minute
