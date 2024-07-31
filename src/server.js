@@ -27,5 +27,5 @@ app.use('/v1', mainRoutes);
 app.use('/v1/user', userRoutes);
 
 app.listen(port, () => {
-    console.log(`Server started on htttp://localhost:${port}`);
+    console.log(`Server started on http://localhost:${port}`);
 });
