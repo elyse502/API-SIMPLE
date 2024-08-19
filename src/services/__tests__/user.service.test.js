@@ -13,6 +13,13 @@ test.beforeEach(() => {
     };
 });
 
+test.afterEach(() => {
+    if (userService.getUser(2)) {
+        console.log('Cleanup: User 2 is being removed.');
+        userService.removeUser(2);
+    }
+})
+
 test('must add a user', (t) => {
     const expectedId = 1;
 
@@ -32,11 +39,12 @@ test('must retrieve a user', (t) => {
 });
 
 test('must get all users', (t) => {
-    const expectedId = 1;
+    // Create a second user
+    userService.addUser(sampleUser);
+    
+    const users = userService.getAllUsers();
 
-    const user = userService.getAllUsers();
-
-    t.deepEqual(user[0], { id: expectedId, ...sampleUser });
+    t.deepEqual(users, [{ id: 1, ...sampleUser }, { id: 2, ...sampleUser }]);
 });
 
 test('must update a user', (t) => {
